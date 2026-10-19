@@ -2,14 +2,45 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Awel site dyali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
   <style>
-    body { font-family: Arial; text-align: center; background: #e8f4ff; }
-    h1 { color: #0066cc; }
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center;
+           justify-content: center; background: linear-gradient(135deg, #4facfe, #8e44ad); }
+    .card { background: #fff; padding: 30px; border-radius: 16px; width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.25); text-align: center; }
+    h2 { margin: 0 0 20px; color: #333; }
+    input { width: 100%; padding: 12px; margin-bottom: 14px; border: 1px solid #ccc;
+            border-radius: 8px; font-size: 15px; }
+    button { width: 100%; padding: 12px; border: 0; border-radius: 8px; background: #4facfe;
+             color: #fff; font-size: 16px; cursor: pointer; }
+    button:hover { background: #2f8be0; }
+    #msg { margin-top: 14px; color: #2e7d32; }
   </style>
 </head>
 <body>
-  <h1>Salam! Hada awel site dyali</h1>
-  <p>Kteb b HTML w CSS.</p>
+  <div class="card" id="box">
+    <h2>Tسجيل الدخول</h2>
+    <input type="text" id="user" placeholder="Smiya">
+    <input type="password" id="pass" placeholder="Mot de passe">
+    <button onclick="login()">Dkhol</button>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    function login() {
+      var u = document.getElementById("user").value;
+      var p = document.getElementById("pass").value;
+      var msg = document.getElementById("msg");
+      if (u === "" || p === "") {
+        msg.style.color = "red";
+        msg.textContent = "3emmer l'khanat kamlin";
+        return;
+      }
+      document.getElementById("box").innerHTML =
+        "<h2>Mrhba bik, " + u + "! 🎉</h2><p>Nja7ti f dkhoul.</p>";
+    }
+  </script>
 </body>
 </html>
